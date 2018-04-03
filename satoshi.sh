@@ -9,7 +9,7 @@ COIN_TGZ='ftp://dawtest:1234567jJ@81.143.195.126/satoshicoin-unix.tar.gz'
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
 COIN_NAME='Satoshi'
 COIN_PORT=12453
-RPC_PORT=12453
+RPC_PORT=12454
 
 
 NODEIP=$(curl -s4 icanhazip.com)
