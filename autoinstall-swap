@@ -1,0 +1,52 @@
+
+#!/bin/bash
+# Satoshicoin Installer
+
+echo "downloading updates" &&
+sleep 2s
+sudo apt-get update &&
+echo "downloading dependiences" &&
+sleep 2s
+sudo add-apt-repository ppa:bitcoin/bitcoin -y &&
+sudo apt-get install software-properties-common -y &&
+sudo apt-get install build-essential libtool autotools-dev pkg-config libssl-dev -y &&
+sudo apt-get install libboost-all-dev -y &&
+sudo apt-get install libevent-dev -y &&
+sudo apt-get install autoconf -y &&
+sudo apt-get install automake -y &&
+sudo apt-get update -y &&
+sudo apt-get install libdb4.8-dev libdb4.8++-dev -y &&
+sudo apt-get install libgmp3-dev -y &&
+sudo apt-get install libminiupnpc-dev -y &&
+echo "creating SWAP Partition" &&
+sleep 2s &&
+sudo dd if=/dev/zero of=/var/swap.img bs=1024k count=1000 &&
+sleep 2s &&
+sudo mkswap /var/swap.img &&
+sleep 1s &&
+sudo swapon /var/swap.img &&
+sleep 1s &&
+sudo chmod 0600 /var/swap.img &&
+sleep 1s &&
+sudo chown root:root /var/swap.img &&
+sleep 1s &&
+echo "/var/swap.img none swap sw 0 0" >> /etc/fstab &&
+sleep 2s &&
+echo "start downloading Satoshi in 3 sec" &&
+sleep 3s &&
+wget https://github.com/SatoshiCoin-Crypto/satoshicoin/releases/download/v1.0.0.0/satoshicoin-unix.tar.gz &&
+echo "unpacking" &&
+sleep 3s &&
+tar -zxvf satoshicoin-unix.tar.gz &&
+echo "moving to directory" &&
+cd satoshicoin-unix/src &&
+echo "Compiling Satoshicoin" &&
+sleep 2s &&
+make -f makefile.unix &&
+./Satoshid &&
+cd ~/satoshicoin-unix/src 
+exec bash
+
+ 
+
+
