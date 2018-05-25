@@ -9,7 +9,7 @@ COIN_TGZ='https://github.com/SatoshiCoin-Crypto/satoshicoin/releases/download/v1
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
 COIN_NAME='Satoshi'
 COIN_PORT=12453
-RPC_PORT=12453
+RPC_PORT=12454
 
 
 NODEIP=$(curl -s4 icanhazip.com)
@@ -80,10 +80,21 @@ listen=1
 server=1
 daemon=1
 port=$COIN_PORT
-addnode=140.82.32.110:12453
-addnode=45.32.148.176:12453
-addnode=140.82.52.20:12453
-addnode=207.246.71.108:12453
+addnode=207.154.233.163:12453
+addnode=199.247.26.122:12453
+addnode=207.148.68.50:12453
+addnode=140.82.57.3:12453
+addnode=138.68.145.46:12453
+addnode=108.61.90.103:12453
+addnode=159.203.36.238:12453
+addnode=45.63.88.23:12453
+addnode=209.250.231.240:12453
+addnode=159.65.15.22:12453
+addnode=198.211.113.252:12453
+addnode=45.76.233.82:12453
+addnode=207.246.79.13:12453
+addnode=144.202.23.15:12453
+addnode=217.163.11.197:12453
 EOF
 }
 
